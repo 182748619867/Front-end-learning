@@ -153,8 +153,7 @@
 .dropdown .dd {
 	height: 465px;
 	background-color: #c81623;
-	display: none;
-
+	margin-top: 2px;
 }
 .dropdown li {
 	height: 31px;
@@ -187,6 +186,7 @@
 	text-align: center;
 	font-size: 16px;
 }
+
 .footer {
 	height: 386px;
     background-color: #f5f5f5;
