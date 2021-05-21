@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/3.0.11/vue.global.js "></script>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                count: 0
+            }
+        },
+        methods: {
+            butclick(num) {
+                this.count = num
+            }
+        },
+        template: `
+            <counter :count="count" @add="butclick"/>
+            <counter :count="count" @add="butclick"/>
+            <counter :count="count" @add="butclick"/>
+
+
+        `
+
+    })
+    app.component('counter', {
+        props: ['count'],
+        emits: {
+            add: (value) => {
+                return value < 20 ? true : false;
+            }
+        },
+        methods: {
+            handleClick() {
+                this.$emit('add', this.count + 5)
+            }
+        },
+        template: `
+                <div>{{count}}</div>
+                <button @click="handleClick">点击加一</button>
+            `
+    })
+
+    const vm = app.mount("#app")
+</script>
+
+</html>

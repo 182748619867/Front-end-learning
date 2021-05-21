@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/3.0.11/vue.global.js "></script>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                showComponent: 'fast'
+            }
+        },
+        methods: {
+            handleClick() {
+                this.showComponent = this.showComponent == 'fast' ? 'lanbo' : 'fast';
+            }
+        },
+        template: `
+            <h1>Sir,欢迎来到极速体验室，请选择你喜欢的车</h1>
+            <component :is="showComponent"  />
+            <div><button @click="handleClick" style="width:400px">换一辆</button></div>
+        `
+    })
+    app.component('fast', {
+        template: `
+            <img src="https://img.pcauto.com.cn/images/upload/upc/tx/auto5/1704/19/c47/43818028_43818028_1492587886467_1024.jpg" style="width:400px"/>
+        `
+    })
+    app.component('lanbo', {
+        template: `
+            <img src="https://img.pcauto.com.cn/images/pcautogallery/20104/23/1272008331088_bthumb.JPG" style="width:400px" />
+        `
+    })
+
+    const vm = app.mount("#app")
+</script>
+
+</html>

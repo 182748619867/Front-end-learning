@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/3.0.11/vue.global.js "></script>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                name: '藩王'
+            }
+        },
+        template: `
+            <h3>朱元璋</h3>
+            <son :name="name"/>
+        `
+    })
+    app.component('son', {
+        props: {
+            name: {
+                type: String, //检测传入数据类型
+                required: true, //检测是否传入数据
+                default: '传入默认值'
+            }
+        },
+        template: `<h2>朱棣 {{name}}</h2>`
+    })
+
+    const vm = app.mount("#app")
+</script>
+
+</html>

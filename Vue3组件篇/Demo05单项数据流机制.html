@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/3.0.11/vue.global.js "></script>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                name: '藩王?',
+                count: 0
+            }
+        },
+        template: `
+            <counter :count="count"/>
+            <h3>朱元璋</h3>
+            <son v-bind:name="name"/>
+
+        `
+
+    })
+    app.component('counter', {
+        props: ['count'],
+        data() {
+            return {
+                newCount: this.count
+            }
+        },
+        methods: {
+            cik1() {
+                this.newCount++
+            }
+        },
+        template: `
+                <div>{{newCount}}</div>
+                <button @click="cik1">点击加一</button>
+            `
+    })
+    app.component('son', {
+        props: ['name'],
+        data() {
+            return {
+                newName: this.name
+            }
+        },
+        methods: {
+            cik() {
+                this.newName = "皇帝！"
+            }
+        },
+        template: `
+                <div>朱棣{{newName}}</div>
+                <button @click="cik">点击招募姚广孝</button>
+            `
+    })
+    const vm = app.mount("#app")
+</script>
+
+</html>

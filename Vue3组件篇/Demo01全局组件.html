@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/3.0.11/vue.global.js "></script>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+<script>
+    const app = Vue.createApp({
+        template: `
+            <uname/>
+            <saying/>
+            <count/>
+        `
+    })
+    app.component('uname', {
+        template: `<h2>于谦</h2>`
+    })
+    app.component('saying', {
+        template: `<h3>要留清白在人间</h3>`
+    })
+    app.component('count', {
+        data() {
+            return {
+                count: 0
+            }
+        },
+        template: `
+            <h3>{{count}}</h3>
+            <button @click="count++">点赞</button>
+        `
+    })
+    const vm = app.mount("#app")
+</script>
+
+</html>

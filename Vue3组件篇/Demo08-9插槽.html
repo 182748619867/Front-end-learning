@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/3.0.11/vue.global.js "></script>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+<script>
+    const app = Vue.createApp({
+
+        template: `
+            <loyal style="color:orange">
+            <template v-slot:saying><div>人生自古谁无死</div></template>
+            <template v-slot:name style="font-size:50px"><div>--------文天祥</div></template>
+            
+            </loyal>
+        `
+    })
+    app.component('loyal', {
+        template: `
+        <div><slot name="saying"></slot>留取丹心照汗青
+            <slot name="name"></slot></div>
+        `
+    })
+
+    const vm = app.mount("#app")
+</script>
+
+</html>

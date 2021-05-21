@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/3.0.11/vue.global.js "></script>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+<script>
+    const app = Vue.createApp({
+
+        template: `
+            <loyal style="color:orange">
+            <template #saying><div>人生自古谁无死</div></template>
+            <template #name><div>--------文天祥</div></template>
+            
+            </loyal>
+            <list v-slot="{item}">
+                <div>{{item}}</div>
+            </list>
+        `
+    })
+    app.component('loyal', {
+        data() {
+            return {
+                list: ['留取', '丹心', '照汗青']
+            }
+        },
+        template: `
+            <slot name="saying"></slot>
+            <slot v-for="item in list" :item="item" name="one">
+            </slot>
+            <slot name="name"></slot>
+        `
+    })
+    app.component('List', {
+        data() {
+            return {
+                list: ['留取', '丹心', '照汗青']
+            }
+        },
+        template: `
+        <slot v-for="item in list" :item="item">
+            </slot>
+        `
+    })
+    const vm = app.mount("#app")
+</script>
+
+</html>

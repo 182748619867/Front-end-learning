@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/3.0.11/vue.global.js "></script>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+<script>
+    const app = Vue.createApp({
+
+        template: `
+            
+            <h3>郑和</h3>
+            <Hello style="color:red"/>
+
+        `
+
+    })
+    app.component('Hello', {
+        mounted() {
+            console.log(this.$attrs.style)
+        },
+        template: `
+        <h2 :style="$attrs.style">Hello World!</h2> <h2>Hello World!</h2> <h2>Hello World!</h2>
+        `
+    })
+    const vm = app.mount("#app")
+</script>
+
+</html>

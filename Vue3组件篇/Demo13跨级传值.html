@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/3.0.11/vue.global.js "></script>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                skill: '朱家兵法'
+            }
+        },
+        provide: {
+            newSkill: '费相制度'
+        },
+        template: `
+            <div>我是朱元璋，使用{{skill}}推翻了元朝</div>
+            <dad :skill="skill"/>
+        `
+    })
+    app.component('dad', {
+        data() {
+            return {
+                threeSkill: '永乐大典'
+            }
+        },
+        props: ['skill'],
+        template: `
+            <div>我是朱棣，使用{{skill}}赶跑了蒙古人</div>
+            <son :skill="skill" :threeSkill="threeSkill"/>
+        `
+    })
+    app.component('son', {
+        props: ['skill', 'threeSkill'],
+        inject: ['newSkill'],
+        template: `
+            <div>我是朱瞻基，使用{{skill}}捍卫了大清疆土</div>
+            <div>在{{newSkill}}和{{threeSkill}}影响下 开辟了盛世</div>
+        `
+    })
+
+    const vm = app.mount("#app")
+</script>
+
+</html>

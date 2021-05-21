@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/3.0.11/vue.global.js "></script>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                name: '藩王?',
+                pay: () => {
+                    alert('朱棣 称王')
+                        // this.name.push = '皇帝！'
+                        // app.set(this.name, '藩王?', '皇帝！')
+                }
+            }
+        },
+        template: `
+            <h3>朱元璋</h3>
+            <son v-bind:name="name"/>
+            <adviser :pay="pay"/>
+            {{name}}
+        `
+    })
+    app.component('son', {
+        props: ['name'],
+        template: `<h2>朱棣 {{name}}</h2>`
+    })
+    app.component('adviser', {
+        props: ['pay'],
+        methods: {
+            cik() {
+                console.log('朱棣：我要平反');
+                this.pay()
+            }
+        },
+        template: `<button @click="cik">点击招募姚广孝</button>`
+    })
+
+    const vm = app.mount("#app")
+</script>
+
+</html>
