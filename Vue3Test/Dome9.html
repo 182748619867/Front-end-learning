@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <!-- 1. 声明周期函数，在 某一时刻 会 自动 执行函数 -->
+    <div id="app"></div>
+</body>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                uname: '王菲'
+            }
+        },
+        methods: {
+            cik() {
+                this.uname = this.uname == '王菲' ? '谢霆锋' : '王菲'
+            },
+        },
+
+
+        template: "<div @click='cik'>{{uname}}</div>"
+
+    })
+    const vm = app.mount("#app");
+</script>
+
+</html>

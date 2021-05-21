@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <style>
+        .red {
+            color: red;
+        }
+        
+        .green {
+            color: green;
+        }
+        
+        .background {
+            background-color: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                show: false
+            }
+        },
+        template: `<h2 v-show='show'>父亲</h2>
+                    <sonCom v-if='show'>
+                `
+    })
+    app.component('sonCom', {
+        template: `
+            <div>
+                <div>hello dad</div>
+                <div>我是你的儿子</div>
+            </div>
+        `
+    })
+    const vm = app.mount("#app")
+</script>
+
+</html>

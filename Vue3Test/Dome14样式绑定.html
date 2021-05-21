@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <style>
+        .red {
+            color: red;
+        }
+        
+        .green {
+            color: green;
+        }
+        
+        .background {
+            background-color: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                classString: 'red',
+                classObject: {
+                    red: true,
+                    background: true
+                },
+                classArray: ['green', 'background']
+            }
+        },
+        template: `<h2 :class="classArray">总价</h2>
+                `
+    })
+    const vm = app.mount("#app")
+</script>
+
+</html>

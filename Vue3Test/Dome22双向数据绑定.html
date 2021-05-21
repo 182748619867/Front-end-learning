@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                names: [],
+                name: ''
+            }
+
+        },
+        methods: {
+
+        },
+        template: `
+            <div>
+                {{names}}
+                赵云<input type="checkbox" v-model="names" value="赵云">
+                黄忠<input type="checkbox" v-model="names" value="黄忠">
+                马超<input type="checkbox" v-model="names" value="马超">
+            </div>
+            `
+    })
+    const vm = app.mount("#app")
+</script>
+
+</html>

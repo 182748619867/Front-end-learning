@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>桃园结义</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+
+</body>
+<script>
+    // 1. 输入将领名称 点击招募按钮 将领将添加目录中
+    Vue.createApp({ //创建一个Vue实例
+        data() {
+            return {
+                list: [],
+                inputValue: ''
+            }
+        },
+        methods: {
+            zhaomu() {
+                this.list.push(this.inputValue)
+                this.inputValue = ''
+            }
+        },
+        template: `<div>
+            <input v-model="inputValue">
+            <button v-on:click="zhaomu">招募</button>
+            <ul>
+                <li v-for="(item,index) of list">[{{index}}]{{item}}</li>
+            </ul>
+        </div>` //字面量
+    }).mount("#app")
+</script>
+
+</html>

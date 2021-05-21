@@ -1,0 +1,49 @@
+<!-- 计算属性的特性，当计算属性依赖发生改变时，才会重新执行计算 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                uname: '宋小宝',
+                count: 2,
+                sprice: 10
+            }
+        },
+        computed: {
+            total() {
+                return Date.now()
+            }
+        },
+        methods: {
+            cik() {
+                this.uname = this.uname == '王菲' ? '谢霆锋' : '王菲'
+            },
+            add() {
+                // return this.count * this.sprice
+                return Date.now()
+            },
+            cikcount() {
+                this.count++
+            }
+        },
+        template: `<div @click='cik'>{{uname}}</div>
+                    <h4>总价：{{total}}</h4>
+                    <button @click='cikcount'>再买一个</button>
+                `
+    })
+    const vm = app.mount("#app")
+</script>
+
+</html>

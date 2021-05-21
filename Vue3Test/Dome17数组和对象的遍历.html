@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                lins: ['刘备', '关羽', '张飞'],
+                object: {
+                    主公: '曹操',
+                    谋士: '郭嘉',
+                    武将: '典韦'
+                }
+            }
+        },
+        methods: {
+            cik() {
+                this.lins.push('诸葛亮')
+            }
+        },
+        template: `
+            <ul>
+                <li v-for="(item,index) in lins">[{{index}}]{{item}}</li>
+            </ul> 
+            <button @click="cik">添加将领</button>
+            <ul>
+                <li v-for="(value,key,index) in object">[{{index}}]{{key}}:{{value}}</li>
+            <ul>
+            <div v-for="count in 99">{{count}}</div>
+                `
+    })
+    const vm = app.mount("#app")
+</script>
+
+</html>

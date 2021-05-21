@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vr体验馆</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+
+</body>
+<script>
+    // 1. 有玩家来时，点击按钮，欢迎玩家进入
+    // 2. 玩家退出时，点击按钮，退出成功
+    // 3. VIP模式：战争模式、home模式
+    Vue.createApp({ //创建一个Vue实例
+        data() {
+            return {
+                content: "",
+                pattern: '海洋 陆地 空中',
+                isShow: false
+            }
+        },
+        methods: {
+            welcome() {
+                this.content = "欢迎玩家进入"
+            },
+            bye() {
+                this.content = "退出成功"
+            },
+            vip() {
+                this.isShow = !this.isShow
+            }
+        },
+        template: `<div>
+            <div>{{content}}</div>
+            <button v-on:click="welcome">进入</button>&nbsp;
+            <button v-on:click="bye">退出</button>
+            <div>
+                <div v-if="isShow">{{pattern}}</div>
+                <button v-on:click="vip">战争模式</button>
+            </div>
+            </div>` //字面量
+
+    }).mount("#app")
+</script>
+
+</html>
