@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>发射</button>
+    <script>
+        console.log('倒计时开始');
+        // setTimeout(function() {
+        //     console.log(5);
+
+        // }, 3000);
+        var num = 3;
+        var int = setInterval(function() {
+            if (num !== 0) {
+                console.log(num + 's');
+                num--;
+            } else {
+                console.log('发射装置准备就绪，请指示');
+
+            }
+        }, 1000)
+        var btn = document.querySelector('button');
+        btn.onclick = function() {
+            console.log('发射');
+            clearInterval(int);
+        }
+    </script>
+</body>
+
+</html>

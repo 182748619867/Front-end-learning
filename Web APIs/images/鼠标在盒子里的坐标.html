@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            margin: 100px auto;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+
+    </div>
+    <script>
+        var div = document.querySelector('.box');
+        div.onclick = function(e) {
+            var x = e.pageX - div.offsetLeft;
+            var y = e.pageY - div.offsetTop;
+            div.innerHTML = '鼠标在盒子里的X坐标是' + x + ' Y坐标是' + y + '';
+        }
+    </script>
+</body>
+
+</html>

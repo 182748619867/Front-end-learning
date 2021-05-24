@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        .box {
+            margin: 200px auto;
+            width: 120px;
+            height: 90px;
+            padding: 6px 0 0 6px;
+            border: 1px solid #ccc;
+        }
+        
+        li {
+            float: left;
+            width: 24px;
+            height: 24px;
+            margin: 0 6px 6px 0;
+            background-color: skyblue;
+            list-style: none;
+            background: url(images/sprite.png);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script>
+        // 查找元素
+        var lis = document.querySelectorAll('li');
+        console.log(lis);
+        // 选择事件类型  程序实现
+        for (var i = 0; i < lis.length; i++) {
+            var num = i * 44;
+            lis[i].style.backgroundPosition = ('0 -' + num + 'px')
+        }
+    </script>
+</body>
+
+</html>

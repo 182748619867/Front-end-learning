@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            color: #999;
+            outline: none;
+        }
+        
+        .change {
+            border-color: springgreen;
+            color: #333;
+        }
+        
+        .change2 {
+            color: #999;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" value="手机">
+    <!-- 实现效果
+    1. 点击进入内容若是默认值‘手机’，清空表单
+    2. 若没输入内容点出来，默认值变为‘手机’
+    3. 当输入内容后颜色变深 -->
+    <script>
+        // 寻找元素
+        var ipt = document.querySelector('input');
+        // 注册事件  程序处理
+        ipt.onfocus = function() {
+            if (ipt.value === '手机') {
+                ipt.value = '';
+            }
+            ipt.className = 'change';
+        }
+        ipt.onblur = function() {
+            if (ipt.value === '') {
+                ipt.value = '手机';
+            }
+            ipt.className = 'change2';
+        }
+    </script>
+</body>
+
+</html>

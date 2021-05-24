@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        li {
+            list-style: none;
+        }
+        
+        .box {
+            width: 600px;
+            margin: 200px auto;
+            background-color: skyblue;
+        }
+        
+        .hd {
+            height: 40px;
+            background-color: #ccc;
+        }
+        
+        .hd ul li {
+            float: left;
+            padding: 0 15px;
+            line-height: 40px;
+            cursor: pointer;
+        }
+        
+        .change {
+            background-color: orange;
+            color: #fff;
+        }
+        
+        .bd div {
+            display: none;
+        }
+        
+        .bd .show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="hd">
+            <ul>
+                <li class="change">手机类型</li>
+                <li>参数信息</li>
+                <li>售后服务</li>
+                <li>客户评价（5000+）</li>
+                <li>相似产品</li>
+            </ul>
+        </div>
+        <div class="bd">
+            <div class="show">手机类型</div>
+            <div>参数信息</div>
+            <div>售后服务</div>
+            <div>客户评价（5000+）</div>
+            <div>相似产品</div>
+        </div>
+    </div>
+    <script>
+        // 寻找元素
+        var lis = document.querySelectorAll('li');
+        var divs = document.querySelector('.bd').querySelectorAll('div');
+        console.log(lis);
+        console.log(divs);
+        // 选择事件  程序实现
+        for (var i = 0; i < lis.length; i++) {
+            lis[i].setAttribute('index', i);
+            lis[i].onclick = function() {
+                for (var i = 0; i < lis.length; i++) {
+                    lis[i].className = '';
+                    divs[i].className = '';
+                }
+                this.setAttribute('class', 'change');
+                var index = this.getAttribute('index');
+                console.log(index);
+                divs[index].className = 'show';
+            }
+
+        }
+    </script>
+</body>
+
+</html>

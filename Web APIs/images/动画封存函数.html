@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            background-color: skyblue;
+            margin: 200px 0;
+        }
+    </style>
+    <script src="animate.js"></script>
+</head>
+
+<body>
+    <button class="one">突破上篮</button>
+    <button class="two">转身拉杆</button>
+    <div>乔丹</div>
+    <script>
+        var btn1 = document.querySelector('.one');
+        var btn2 = document.querySelector('.two');
+        var div = document.querySelector('div');
+
+
+        btn1.onclick = function() {
+            animate(div, 500, function() {
+                div.style.background = 'skyblue';
+                div.innerHTML = '三人包夹了他';
+            })
+        };
+        btn2.onclick = function() {
+            animate(div, 800, function() {
+                div.style.background = 'red';
+                div.innerHTML = '乔丹得分了';
+            })
+        };
+
+        // btn1.addEventListener('click', function() {
+        //     clearInterval(div.timer);
+        //     div.timer = setInterval(function() {
+        //         var target = (500 - div.offsetLeft) / 10;
+        //         // if (target < 0) {
+        //         //     target = Math.floor(target);
+        //         // } else {
+        //         //     target = Math.ceil(target);
+        //         // }
+        //         target < 0 ? target = Math.floor(target) : target = Math.ceil(target);
+        //         div.style.left = div.offsetLeft + target + 'px';
+
+        //     }, 30);
+        // });
+        // btn2.addEventListener('click', function() {
+        //     clearInterval(div.timer);
+        //     div.timer = setInterval(function() {
+        //         if (div.offsetLeft < 800) {
+        //             div.style.left = div.offsetLeft + Math.ceil((800 - div.offsetLeft) / 10) + 'px';
+        //         }
+        //     }, 30);
+        // });
+    </script>
+</body>
+
+</html>

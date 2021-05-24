@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            margin: 200px 300px;
+        }
+        
+        input {
+            outline: none;
+        }
+        
+        span {
+            color: turquoise;
+            font-size: 12px;
+        }
+        
+        img {
+            width: 10px;
+            margin: 0 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <input type="password">
+        <img src="images/mess.png" alt="">
+        <span>请输入6~16位密码</span>
+
+
+    </div>
+    <script>
+        // 获取元素
+        var ipt = document.querySelector('input');
+        var img = document.querySelector('img');
+        var text = document.querySelector('span');
+        // 选择事件 程序实现
+        ipt.onblur = function() {
+            if (ipt.value.length >= 6 && ipt.value.length <= 16) {
+                img.src = 'images/right.png';
+                text.style.color = 'green';
+                text.innerHTML = '输入正确';
+            } else {
+                img.src = 'images/wrong.png';
+                text.style.color = 'red';
+                text.innerHTML = '输入错误，请输入6~16位密码';
+            }
+
+        }
+    </script>
+</body>
+
+</html>
