@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>清除浮动</title>
+	<style type="text/css">
+		.clearfix:after {
+			content: "";
+			display: block;
+			height: 0;
+			visibility: hidden;
+			clear: both;
+		}
+		.clearfix {
+			*zoom: 1;
+		}
+
+		.one {
+			border:1px solid #000;
+
+			/*overflow: hidden;*/
+		}
+		.frist {
+			float: left;
+			height: 200px;
+			width: 200px;
+			background-color: orange;
+		}
+		.second {
+			float: left;
+			height: 150px;
+			width: 300px;
+			background-color: blue;
+		}
+		.two {
+			height: 200px;
+			width: 300px;
+			background-color: #000;
+		}
+	</style>
+</head>
+<body>
+	<div class="one clearfix">
+		<div class="frist"></div>
+		<div class="second"></div>
+	</div>
+	<div class="two"></div>
+</body>
+</html>
