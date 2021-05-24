@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var num1 = 0,
+            num = 0,
+            numji = 0,
+            numou = 0,
+            num3 = 0;
+        for (var i = 1; i <= 100; i++) {
+            num += i;
+        }
+        num1 = num / 100;
+        for (var j = 1; j <= 100; j++) {
+            if (j % 2 == 0) {
+                numou += j;
+            } else {
+                numji += j;
+            }
+        }
+        for (var k = 1; k <= 100; k++) {
+            if (k % 3 == 0) {
+                num3 += k;
+            }
+        }
+        console.log(num1);
+        console.log(numji);
+        console.log(numou);
+        console.log(num3);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

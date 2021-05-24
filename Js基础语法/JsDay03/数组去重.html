@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 实现原理
+        // 1. 遍历旧数组；
+        // 2. 查看元素在新数组中是否存在，若不存在则添加进新数组，存在则不添加
+        // 3. 拿着旧数组的元素在新数组中进行查找，若不存在，则添加进新数组，否则不添加
+        // 3. 返回新数组
+        function unique(arr) {
+            var newArr = [];
+            for (i = 0; i < arr.length; i++) {
+                if (newArr.indexOf(arr[i]) == -1) {
+                    newArr.push(arr[i]);
+                }
+            }
+            return newArr;
+        }
+        console.log(unique(['1', '2', '3', '4', '1']));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

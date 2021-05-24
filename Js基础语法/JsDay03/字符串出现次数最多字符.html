@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 1. 遍历字符串
+        // 2. 判断当下字符是一个新对象中的键，若是则添加使对应的值加1，否则则建立一个新键，使值为1
+        // 3. 遍历对象，找到最大的值，并找到对应的键
+        var str = 'adsddaffsad';
+        var o = {};
+        for (i = 0; i < str.length; i++) {
+            var char = str.charAt(i);
+            if (o[char]) {
+                o[char]++;
+            } else {
+                o[char] = 1;
+            }
+        }
+        console.log(o);
+        var max = 0;
+        var ch = '';
+        for (var k in o) {
+            if (o[k] > max) {
+                max = o[k];
+                ch = k;
+            }
+        }
+        console.log('出现次数最多的字符是：' + ch + ',次数为：' + max);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
