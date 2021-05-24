@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: skyblue;
+        }
+        
+        div:nth-child(1) {
+            position: relative;
+            width: 2200px;
+            height: 569px;
+            background: url(media/bg2.png);
+            animation: shan 15s linear infinite;
+        }
+        
+        div:nth-child(1) div {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 2200px;
+            height: 336px;
+            background: url(media/bg1.png);
+            animation: shan 15s linear infinite;
+        }
+        
+        div:nth-child(2) {
+            float: left;
+            position: absolute;
+            width: 200px;
+            height: 100px;
+            background: url(media/bear.png) no-repeat;
+            animation: run 0.5s steps(8) infinite, place 3s linear forwards;
+        }
+        
+        @keyframes shan {
+            0% {
+                background-position: 0, 0;
+            }
+            100% {
+                background-position: -3840px, 0;
+            }
+        }
+        
+        @keyframes run {
+            0% {
+                background-position: 0, 0;
+            }
+            100% {
+                background-position: -1600px, 0;
+            }
+        }
+        
+        @keyframes place {
+            0% {
+                left: 0;
+            }
+            100% {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div></div>
+
+    </div>
+    <div></div>
+
+
+</body>
+
+</html>

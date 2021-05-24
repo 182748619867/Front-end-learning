@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @keyframes move {
+            0% {
+                transform: translate(0);
+            }
+            25% {
+                transform: translateX(1000px);
+            }
+            50% {
+                transform: translate(1000px, 600px);
+            }
+            75% {
+                transform: translateY(600px);
+            }
+            100% {
+                transform: translate(0);
+            }
+        }
+        
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: cornflowerblue;
+            /*animation-name: move;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate; */
+            /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+            animation: move 2s 1s infinite  alternate;
+        }
+        
+        div:hover {
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+</body>
+
+</html>

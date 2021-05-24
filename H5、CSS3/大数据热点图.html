@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        background-color: #000033;
+    }
+    
+    .map {
+        position: relative;
+        width: 747px;
+        height: 617px;
+        background: url(media/map.png) no-repeat;
+        margin: 100px auto;
+    }
+    
+    .coord {
+        position: absolute;
+        top: 222px;
+        right: 189px;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: cyan;
+    }
+    
+    .guangzhou {
+        top: 533px;
+        right: 189px;
+    }
+    
+    .taibei {
+        top: 500px;
+        right: 82px;
+    }
+    
+    .map div[class^="nul"] {
+        position: absolute;
+        top: 50%;
+        right: 50%;
+        transform: translate(50%, -50%);
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        box-shadow: 0 0 12px cyan;
+        animation: wave 1.2s linear infinite;
+    }
+    
+    .map .coord .nul1 {
+        animation-delay: 0.4s;
+    }
+    
+    @keyframes wave {
+        70% {
+            width: 40px;
+            height: 40px;
+            opacity: 1;
+        }
+        100% {
+            width: 70px;
+            height: 70px;
+            opacity: 0;
+        }
+    }
+</style>
+
+<body>
+    <div class="map">
+        <div class="coord">
+            <div class="nul1"></div>
+            <div class="nul2"></div>
+        </div>
+        <div class="coord guangzhou">
+            <div class="nul1"></div>
+            <div class="nul2"></div>
+        </div>
+        <div class="coord taibei">
+            <div class="nul1"></div>
+            <div class="nul2"></div>
+        </div>
+    </div>
+</body>
+
+</html>

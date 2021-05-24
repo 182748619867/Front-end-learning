@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            cursor: pointer;
+            outline: none;
+        }
+        
+        button[disabled] {
+            cursor: default;
+        }
+        
+        input[type$="ch"] {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button disabled>按钮</button>
+
+    <input type="button" value="文本框">
+    <input type="button1" value="文本框">
+    <input type="button" value="文本框">
+    <input type="search" value="搜索框">
+    <input type="search1" value="搜索框">
+    <input type="search" value="搜索框">
+</body>
+
+</html>
