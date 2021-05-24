@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @media screen and (min-width: 500px) {
+            html {
+                font-size: 150px;
+            }
+        }
+        
+        @media screen and (min-width: 1000px) {
+            html {
+                font-size: 100px;
+            }
+            div {
+                background-color: #000;
+            }
+            .one {
+                display: none;
+            }
+            div .two {
+                display: block;
+            }
+        }
+        
+        div {
+            width: 4rem;
+            height: 2rem;
+            font-size: .5rem;
+            border: 1px solid #000;
+            text-align: center;
+            line-height: 2rem;
+        }
+        
+        .one {
+            font-weight: 700;
+        }
+        
+        .two {
+            color: #fff;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <span class="one">天黑了，</span>
+        <span class="two">请闭眼</span>
+    </div>
+</body>
+
+</html>
