@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Star(uname, age) {
+            this.uname = uname;
+            this.age = age;
+            // this.sing = function() {
+            //     console.log('singer');
+            // }
+        }
+        Star.prototype.sing = function() {
+            console.log('我会唱歌');
+
+        }
+        var gtl = new Star('古天乐', 19);
+        var zgr = new Star('张国荣', 17);
+        // console.log(gtl.age);
+        // gtl.sing();
+        // console.log(gtl);
+        // Star.sex = '男';
+        // console.log(Star.sex);
+
+        // gtl.sing();
+        // console.log(gtl.sing() === zgr.sing());
+        console.log(gtl.__proto__);
+    </script>
+</body>
+
+</html>
