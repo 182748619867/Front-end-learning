@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue-router的案例</title>
+    <style>
+        html,
+        body,
+        #app {
+            margin: 0;
+            padding: 0px;
+            height: 100%;
+        }
+        
+        .header {
+            height: 50px;
+            background-color: #545c64;
+            line-height: 50px;
+            text-align: center;
+            font-size: 24px;
+            color: #fff;
+        }
+        
+        .footer {
+            height: 40px;
+            line-height: 40px;
+            background-color: #888;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            color: #fff;
+        }
+        
+        .main {
+            display: flex;
+            position: absolute;
+            top: 50px;
+            bottom: 40px;
+            width: 100%;
+        }
+        
+        .content {
+            flex: 1;
+            text-align: center;
+            height: 100%;
+        }
+        
+        .left {
+            flex: 0 0 20%;
+            background-color: #545c64;
+        }
+        
+        .left a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .right {
+            margin: 5px;
+        }
+        
+        .btns {
+            width: 100%;
+            height: 35px;
+            line-height: 35px;
+            background-color: #f5f5f5;
+            text-align: left;
+            padding-left: 10px;
+            box-sizing: border-box;
+        }
+        
+        button {
+            height: 30px;
+            background-color: #ecf5ff;
+            border: 1px solid lightskyblue;
+            font-size: 12px;
+            padding: 0 20px;
+        }
+        
+        .main-content {
+            margin-top: 10px;
+        }
+        
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        ul li {
+            height: 45px;
+            line-height: 45px;
+            background-color: #a0a0a0;
+            color: #fff;
+            cursor: pointer;
+            border-bottom: 1px solid #fff;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        td,
+        th {
+            border: 1px solid #eee;
+            line-height: 35px;
+            font-size: 12px;
+        }
+        
+        th {
+            background-color: #ddd;
+        }
+    </style>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <router-view></router-view>
+    </div>
+
+
+
+
+    <script>
+        // 定义路由组件
+        const App = {
+            template: `
+                <div>
+                <!-- 头部区域 -->
+                <header class="header">后台管理系统</header>
+                <!-- 中间主题区域 -->
+                <div class="main">
+                    <!-- 左侧菜单栏 -->
+                    <div class="content left">
+                        <ul>
+                            <li>
+                                <router-link to="/users">用户管理</router-link>
+                            </li>
+                            <li>
+                                <router-link to="/rights">权限管理</router-link>
+                            </li>
+                            <li>
+                                <router-link to="/goods">商品管理</router-link>
+                            </li>
+                            <li>
+                                <router-link to="/orders">订单管理</router-link>
+                            </li>
+                            <li>
+                                <router-link to="/settings">系统设置</router-link>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- 右侧内容区域 -->
+                    <div class="content right">
+                        <div class="main-content">
+                            <router-view />
+                        </div>
+                    </div>
+                </div>
+                <!-- 尾部区域 -->
+                <footer class="footer">版权信息</footer>
+            </div>
+                `
+        }
+        const Users = {
+            props: ['name'],
+            data() {
+                return {
+                    userlist: [{
+                        id: 1,
+                        name: '鹰眼',
+                        age: 40,
+                        job: '七武海'
+                    }, {
+                        id: 2,
+                        name: '路飞',
+                        age: 20,
+                        job: '海贼'
+                    }, {
+                        id: 3,
+                        name: '萨博',
+                        age: 22,
+                        job: '革命军'
+                    }, {
+                        id: 4,
+                        name: '青雉',
+                        age: 40,
+                        job: '海军'
+                    }],
+
+                }
+            },
+            methods: {
+                goDetail(id, name) {
+                    console.log(name);
+                    this.$router.push('/usersInfor/' + id)
+                }
+            },
+            template: `
+            <div>
+                <h3>用户管理区域</h3>
+            <table>
+                <thead>
+                    <tr><th>编号</th><th>名字</th><th>年龄</th><th>职业</th><th>操作</th></tr>
+                </thead>
+                <tbody>
+                    <tr v-for="item in userlist" :key="item.id">
+                        <td>{{item.id}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.age}}</td>
+                        <td>{{item.job}}</td>
+                        <td>
+                            <a href="javascript:;" @click="goDetail(item.id,item.name)">详情</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+            `
+        }
+        const Rights = {
+            template: `
+            <div>权限管理区域</div>
+            `
+        }
+        const Goods = {
+            template: `
+            <div>商品管理区域</div>
+            `
+        }
+        const Orders = {
+            template: `
+            <div>订单管理区域</div>
+            `
+        }
+        const Settings = {
+            template: `
+            <div>系统设置区域</div>
+            `
+        }
+        const UsersInfor = {
+                props: ['id'],
+                methods: {
+                    goback() {
+                        this.$router.go(-1)
+                    }
+                },
+                template: `
+                <div>
+                    <div>{{id}}详情区域</div>
+                    <button @click="goback">退出</button>    
+                </div>
+                `
+            }
+            // 配置路由规则
+        const routes = [{
+                path: '/',
+                component: App,
+                redirect: '/users',
+                children: [{
+                    path: '/users',
+                    component: Users
+                }, {
+                    path: '/usersInfor/:id',
+                    component: UsersInfor,
+                    props: true
+                }, {
+                    path: '/rights',
+                    component: Rights
+                }, {
+                    path: '/goods',
+                    component: Goods
+                }, {
+                    path: '/orders',
+                    component: Orders
+                }, {
+                    path: '/settings',
+                    component: Settings
+                }, ]
+            }]
+            // 创造路由实例
+        const router = new VueRouter({
+            routes
+        })
+
+        const vm = new Vue({
+            // 把路由挂载到 Vue 根实例中
+            router
+        }).$mount('#app')
+    </script>
+</body>
+
+</html>
